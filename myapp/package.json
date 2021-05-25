@@ -2,11 +2,8 @@
   "name": "myapp",
   "version": "0.0.0",
   "private": true,
-  "homepage" : "https://kij2648.github.io/digitalkids_mbti/",
   "scripts": {
-    "start": "node ./bin/www",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "start": "node ./bin/www"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",

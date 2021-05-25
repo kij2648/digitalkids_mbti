@@ -1,5 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var fs = require('fs');
 var homepage = require('../views/homepage.js');
 var userpage = require('../views/userpage.js');
 var test = require('../views/test.js');
@@ -27,12 +28,13 @@ router.get('/:name', function(req, res, next) {
 
 
 
-router.get('/:name/test/:number', function(req, res, next) {
+router.get('/:name/test/', function(req, res, next) {
   var params = req.params;
   var name = params.name;
-  var number = Number(params.number);
-  var html = test.HTML(number+1, name);
-  res.send(html);
+  //var data = fs.readFileSync('../public/data/question1.txt', 'utf8');
+  //console.log(data);
+  var html = test.HTML(name);
+  res.send(html);  
 });
 
 router.get('/:name/result', function(req, res, next) {
