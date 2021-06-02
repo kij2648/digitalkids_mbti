@@ -25,7 +25,7 @@ module.exports = {
         <script>
           function sendLinkCustom(){
             Kakao.Link.sendCustom({
-              templateId: 587461,
+              templateId: 54203,
             });
           }
         </script>

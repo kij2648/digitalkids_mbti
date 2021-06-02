@@ -6,6 +6,7 @@ var userpage = require('../views/userpage.js');
 var test = require('../views/test.js');
 var result = require('../views/result.js');
 var prob = require('../views/prob.js');
+var friend = require('../views/friend.js');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -26,7 +27,12 @@ router.get('/:name', function(req, res, next) {
   res.send(html);
 });
 
-
+router.get('/:name/friend/', function(req, res, next) {
+  var params = req.params;
+  var name = params.name;
+  var html = friend.HTML(name);
+  res.send(html);  
+});
 
 router.get('/:name/test/', function(req, res, next) {
   var params = req.params;
@@ -37,7 +43,7 @@ router.get('/:name/test/', function(req, res, next) {
   res.send(html);  
 });
 
-router.get('/:name/result', function(req, res, next) {
+router.get('/:name/result/mbti', function(req, res, next) {
   var params = req.params;
   var name = params.name;
   var html = result.HTML(name);

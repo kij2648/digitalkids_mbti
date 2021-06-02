@@ -28,7 +28,7 @@ module.exports = {
             document.getElementById('questionText').innerText = questions[number-1];
           }
           else {
-            location.href='./result';
+            location.href='./result/mbti';
           }
         }
       </script>
