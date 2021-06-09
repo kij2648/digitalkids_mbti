@@ -6,6 +6,7 @@ module.exports = {
       <head>
         <title> Digital Kids Proj. - ${name} </title>
         <meta charset="utf-8">
+        <link rel="icon" type="image/png" sizes="96x96" href="./public/images/favicon-96x96.png">
       </head>
       <body>
         <h1> ${name}의 MBTI 페이지 </h1>
