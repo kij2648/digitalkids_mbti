@@ -19,7 +19,7 @@ module.exports = {
           -------MBTI 결과 값 표시-------
           <br>
           <br>
-          <input type="button" onclick="sendLinkCustom();" value="Custom"/>
+          <input type="button" onclick="sendLinkCustom();" value="공유하기"/>
           <h3></h3>
           <input type='button' value='전체결과 보기' onclick="location.href='.'">
         </body>
