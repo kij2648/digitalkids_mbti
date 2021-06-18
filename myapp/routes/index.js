@@ -84,24 +84,34 @@ router.post('/:id/fcreate', function(req, res, next) {
   var id = params.id;
   var post = req.body;
   var name = post.name;
-  var redirection = './result/mbti'
+  var mbti = post.mbti;
+  var mbtiText = post.mbtiText;
+  var redirection = './result/' + mbtiText;
   db.query('SELECT * FROM friends_test_page', function(error, fpage){
     newNumber = fpage.length + 1;
-    sqlquery = "INSERT INTO friends_test_page (ftp_id, ftp_name, mp_id, mbti_id) VALUES ("+ newNumber +", '"+ name +"' ,"+ id +" ,1)";
+    sqlquery = "INSERT INTO friends_test_page (ftp_id, ftp_name, mp_id, mbti_id) VALUES ("+ newNumber +", '"+ name +"' ,"+ id +" ,"+ mbti +")";
     db.query(sqlquery, function(error, mypage){
       res.redirect(redirection);
     })
   });
 });
 
-router.get('/:id/result/mbti', function(req, res, next) {
+router.get('/:id/result/:mbtiText', function(req, res, next) {
   var params = req.params;
   var id = params.id;
-  sqlquery = 'SELECT * FROM my_page WHERE mp_id=' + id;
-  db.query(sqlquery, function(error, mp){
+  var mbtiText = params.mbtiText
+  sqlquery1 = 'SELECT * FROM my_page WHERE mp_id=' + id;
+  sqlquery2 = "SELECT * FROM result_page WHERE mbti_def='" + mbtiText + "'";
+  db.query(sqlquery1, function(error, mp){
     var name = mp[0].mp_name;
-    var html = result.HTML(name);
-    res.send(html);
+    db.query(sqlquery2, function(error, rp){
+      var fruit = rp[0].fruit_name;
+      var exp = rp[0].fruit_exp;
+      var detail = rp[0].fruit_detail;
+      console.log(rp);
+      var html = result.HTML(name, mbtiText, fruit, exp, detail);
+      res.send(html);
+    });
   });
 });
 
