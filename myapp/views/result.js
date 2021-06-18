@@ -1,5 +1,5 @@
 module.exports = {
-    HTML:function(name){
+    HTML:function(name, mbtiText, fruit, exp, detail){
       return `
       <!doctype html>
       <html>
@@ -16,7 +16,9 @@ module.exports = {
         </head>
         <body>
           <h1> ${name}의 MBTI는 바로! </h1>
-          -------MBTI 결과 값 표시-------
+          <h3> ${mbtiText}!! </h3>
+          <h3> ${name}은 ${fruit}같고 아래와 같은 사람이야 </h3>
+          <h3> ${exp} : ${detail} </h3>
           <br>
           <br>
           <input type="button" onclick="sendLinkCustom();" value="공유하기"/>
