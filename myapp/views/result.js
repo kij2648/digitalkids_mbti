@@ -23,7 +23,7 @@ module.exports = {
           <br>
           <input type="button" onclick="sendLinkCustom();" value="공유하기"/>
           <h3></h3>
-          <input type='button' value='전체결과 보기' onclick="location.href='.'">
+          <input type='button' value='전체결과 보기' onclick="location.href='../'">
         </body>
         <script>
           function sendLinkCustom(){
